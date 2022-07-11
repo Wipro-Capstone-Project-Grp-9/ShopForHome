@@ -121,3 +121,14 @@ export const createOrder = (userId, token, createOrderData) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const getAllUsers = () => {
+  return fetch(`${API}/users`, {
+    method: 'GET',
+  })
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};

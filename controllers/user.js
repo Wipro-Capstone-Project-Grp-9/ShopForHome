@@ -13,6 +13,31 @@ exports.userById = (req, res, next, id) => {
     next();
   });
 };
+exports.allUsers = (req, res) => {
+  User.find().exec((err, data) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler(err),
+      });
+    }
+    console.log(data);
+    res.json(data);
+  });
+};
+
+exports.deleteUser = (req, res) => {
+  const userID = req.params.id.toString().trim();
+  User.findByIdAndRemove(userID, function (err, docs) {
+    if (err){
+      return res.status(400).json({
+        error: errorHandler(err),
+      });
+    }
+    res.json({
+      message: 'User removed successfully',
+    });
+  });
+}
 
 exports.read = (req, res) => {
   req.profile.hashed_password = undefined;

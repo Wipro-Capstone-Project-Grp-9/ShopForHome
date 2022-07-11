@@ -112,7 +112,7 @@ export default function Signin() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component='h1' variant='h5'>
-          Sign in
+          Login
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -139,7 +139,6 @@ export default function Signin() {
             type='password'
             id='password'
             onChange={handleChange('password')}
-            type='password'
             value={password}
             autoComplete='current-password'
           />
@@ -155,17 +154,13 @@ export default function Signin() {
             color='primary'
             className={classes.submit}
           >
-            Sign In
+            Login
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href='#' variant='body2'>
-                Forgot password?
-              </Link>
-            </Grid>
+          <Grid container justify='flex-end'>
             <Grid item>
+            Don't have an account? 
               <Link to='/signup' variant='body2'>
-                {"Don't have an account? Sign Up"}
+                {" Register"}
               </Link>
             </Grid>
           </Grid>
@@ -176,8 +171,8 @@ export default function Signin() {
 
   return (
     <Layout
-      title='Signin page'
-      description='Signin to MERN E-commerce App'
+      title='Login page'
+      description='Login to Shop For Home App'
       className='container col-md-8 offset-md-2'
     >
       {signInForm()}

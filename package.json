@@ -1,5 +1,5 @@
 {
-  "name": "mern-ecommerce",
+  "name": "Shop For Home",
   "version": "1.0.0",
   "description": "ecommerce site",
   "main": "server.js",
@@ -7,15 +7,15 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently -n 'server,client' -c 'yellow,blue' \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ashraf-kabir/mern-ecommerce.git"
+    "url": "https://github.com/Wipro-Capstone-Project-Grp-9/ShopForHome.git"
   },
   "keywords": [],
-  "author": "Ashraf Kabir",
+  "author": "Custom Project",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
@@ -25,6 +25,7 @@
     "config": "^3.3.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "csvtojson": "^2.0.10",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
@@ -36,6 +37,9 @@
     "mongoose": "^5.9.24",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
+    "papaparse": "^5.3.2",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.4.0",
     "uuid": "^8.2.0",
     "uuidv1": "^1.6.14"
   }

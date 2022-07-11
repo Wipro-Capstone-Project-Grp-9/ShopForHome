@@ -17,6 +17,11 @@ import Profile from './user/Profile';
 import ManageProducts from './admin/ManageProducts';
 import UpdateProduct from './admin/UpdateProduct';
 import NotFound from './core/NotFound';
+import RequestEmail from './admin/RequestEmail';
+import SendEmail from './admin/SendEmail'
+import ManageUsers from './admin/ManageUsers'
+import AddCSV from './admin/AddCSV'
+
 
 const Routes = () => {
   return (
@@ -35,9 +40,17 @@ const Routes = () => {
         <AdminRoute path='/admin/orders' component={Orders} exact />
         <PrivateRoute path='/profile/:userId' component={Profile} exact />
         <AdminRoute path='/admin/products' component={ManageProducts} exact />
+        <AdminRoute path='/admin/email' component={RequestEmail} exact />
+        <AdminRoute path='/admin/sendemail'  component={SendEmail} exact />
+        <AdminRoute path='/admin/users' component={ManageUsers} exact />
         <AdminRoute
           path='/admin/product/update/:productId'
           component={UpdateProduct}
+          exact
+        />
+        <AdminRoute
+          path='/admin/product/bulkupload'
+          component={AddCSV}
           exact
         />
         <Route component={NotFound} />

@@ -12,7 +12,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Search from './Search';
 import { prices } from './fixedPrices';
-import Copyright from './Copyright';
 
 const Shop = () => {
   const [myFilters, setMyFilters] = useState({
@@ -124,7 +123,7 @@ const Shop = () => {
   return (
     <Layout
       title='Shop page'
-      description='Search and find books'
+      description='Search and find'
       className='container-fluid'
     >
       <Search />
@@ -160,7 +159,6 @@ const Shop = () => {
           {loadMoreButton()}
         </div>
       </div>
-      <Copyright />
     </Layout>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import ShowImage from './ShowImage';
 import moment from 'moment';
@@ -17,9 +17,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
+import {Link} from 'react-router-dom'
+import { green } from '@material-ui/core/colors';
 
 import { addItem, updateItem, removeItem } from './cartHelpers';
+
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -56,17 +59,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 const Card = ({
   product,
   showViewProductButton = true,
   showAddToCartButton = true,
+  showApplyDiscountButton = false,
   cartUpdate = false,
   showRemoveProductButton = false,
   setRun = (f) => f, // default value of function
   run = undefined, // default value of undefined
 }) => {
   const [redirect, setRedirect] = useState(false);
+  const [price,setPrice] = useState(product.price)
   const [count, setCount] = useState(product.count);
+  
+
 
   const showViewButton = (showViewProductButton) => {
     return (
@@ -91,6 +100,26 @@ const Card = ({
     }
   };
 
+  function clickHandler (){
+    setPrice(prev => prev - (prev*10)/100)
+    console.log(price);
+    document.getElementById("letdisable").innerHTML = "Coupon applied✅"
+    document.getElementById("letdisable").style.backgroundColor = "green"
+    // document.getElementById("letdisable").disabled = true
+    alert(`Yay, 10% discount coupon applied...!\nYour cart price is ₹${price-(price*10)/100}`)
+      
+  }
+  
+ 
+
+  const showApplyDiscountBtn = (showApplyDiscountButton) =>{  
+    return(
+      showApplyDiscountButton && (
+        <Button id="letdisable" onClick={clickHandler} style={{ textDecoration:'none' ,background:'brown', color:'white',margin:'1rem 0rem'}}>Apply 10% Coupon </Button>
+      )
+    )
+  }
+
   const showAddToCartBtn = (showAddToCartButton) => {
     return (
       showAddToCartButton && (
@@ -102,10 +131,12 @@ const Card = ({
   };
 
   const showStock = (quantity) => {
-    return quantity > 0 ? (
+    return quantity > 10 ? (
       <span className='badge badge-primary badge-pill'>In Stock </span>
     ) : (
-      <span className='badge badge-primary badge-pill'>Out of Stock </span>
+      <>
+      <span className='badge badge-primary badge-pill'>Only Few Left</span>
+      </>
     );
   };
 
@@ -198,7 +229,7 @@ const Card = ({
                 {product.name}
               </Typography>
               <Typography className={classes.productDescription}>{product.description.substring(0, 100)}</Typography>
-              <p className='black-10'>Price: ${product.price}</p>
+              <p className='black-10'>Price: ₹{product.price}</p>
               <p className='black-9'>
                 Category: {product.category && product.category.name}{' '}
               </p>{' '}
@@ -209,6 +240,7 @@ const Card = ({
               <br></br>
               <span>
                 {showViewButton(showViewProductButton)}
+                {showApplyDiscountBtn(showApplyDiscountButton)}
                 {showAddToCartBtn(showAddToCartButton)}
                 {showRemoveButton(showRemoveProductButton)}
               </span>
@@ -220,5 +252,4 @@ const Card = ({
     </Container>
   );
 };
-
 export default Card;

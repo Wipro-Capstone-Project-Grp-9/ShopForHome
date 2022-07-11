@@ -18,9 +18,9 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
-import StorefrontIcon from '@material-ui/icons/Storefront';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import PersonIcon from '@material-ui/icons/Person';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import StoreIcon from '@material-ui/icons/Store';
@@ -161,7 +161,7 @@ const MaterialAppBar = ({ history }) => {
         <MenuItem>
           <Link style={isActive(history, '/shop')} to='/shop'>
             <IconButton aria-label='Shop' color='inherit'>
-              <StorefrontIcon />
+              <ShoppingBasketIcon />
             </IconButton>
             Shop
           </Link>
@@ -211,9 +211,9 @@ const MaterialAppBar = ({ history }) => {
             <MenuItem>
               <Link style={isActive(history, '/signin')} to='/signin'>
                 <IconButton aria-label='Signin' color='inherit'>
-                  <AccountCircleIcon />
+                  <PersonIcon />
                 </IconButton>
-                Signin
+                Login
               </Link>
             </MenuItem>
 
@@ -222,7 +222,7 @@ const MaterialAppBar = ({ history }) => {
                 <IconButton aria-label='Signup' color='inherit'>
                   <PersonAddIcon />
                 </IconButton>
-                Signup
+                Register
               </Link>
             </MenuItem>
           </Fragment>
@@ -241,7 +241,7 @@ const MaterialAppBar = ({ history }) => {
               <IconButton aria-label='Signout' color='inherit'>
                 <ExitToAppIcon />
               </IconButton>
-              Signout
+              Logout
             </span>
           </MenuItem>
         )}
@@ -265,14 +265,14 @@ const MaterialAppBar = ({ history }) => {
           </a>
           <a href='/' style={{ color: '#ffffff', textDecoration: 'none' }}>
             <Typography className={classes.title} variant='h6' noWrap>
-              BRAND
+            ᔕᕼOᑭ ᖴOᖇ ᕼOᗰE
             </Typography>
           </a>
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <Link style={isActive(history, '/')} to='/'>
-              <IconButton aria-label='Home' color='inherit'>
+              <IconButton aria-label='Home' color="inherit">
                 <HomeIcon />
                 <Typography noWrap>Home</Typography>
               </IconButton>
@@ -280,7 +280,7 @@ const MaterialAppBar = ({ history }) => {
 
             <Link style={isActive(history, '/shop')} to='/shop'>
               <IconButton aria-label='Shop' color='inherit'>
-                <StorefrontIcon />
+                <ShoppingBasketIcon />
                 <Typography noWrap>Shop</Typography>
               </IconButton>
             </Link>
@@ -322,15 +322,15 @@ const MaterialAppBar = ({ history }) => {
               <Fragment>
                 <Link style={isActive(history, '/signin')} to='/signin'>
                   <IconButton aria-label='Signin' color='inherit'>
-                    <AccountCircleIcon />
-                    <Typography noWrap>Signin</Typography>
+                    <PersonIcon />
+                    <Typography noWrap>Login</Typography>
                   </IconButton>
                 </Link>
 
                 <Link style={isActive(history, '/signup')} to='/signup'>
                   <IconButton aria-label='Signup' color='inherit'>
                     <PersonAddIcon />
-                    <Typography noWrap>Signup</Typography>
+                    <Typography noWrap>Register</Typography>
                   </IconButton>
                 </Link>
               </Fragment>
@@ -347,7 +347,7 @@ const MaterialAppBar = ({ history }) => {
               >
                 <IconButton aria-label='Signout' color='inherit'>
                   <ExitToAppIcon />
-                  <Typography noWrap>Signout</Typography>
+                  <Typography noWrap>Logout</Typography>
                 </IconButton>
               </span>
             )}

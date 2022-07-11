@@ -1,0 +1,16 @@
+.row_CSV{
+    display: flex;
+    flex-direction: column;
+}
+.p-6{
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-style: solid;
+}
+
+.border-green-600{
+    border-color: chartreuse;
+    background-color: chartreuse;
+}

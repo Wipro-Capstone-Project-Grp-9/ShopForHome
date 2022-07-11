@@ -24,13 +24,28 @@ const AdminDashboard = () => {
             </Link>
           </li>
           <li className='list-group-item'>
-            <Link className='nav-link' to='/admin/orders'>
-              View Orders
+            <Link className='nav-link' to='/admin/products'>
+              Manage Products
             </Link>
           </li>
           <li className='list-group-item'>
-            <Link className='nav-link' to='/admin/products'>
-              Manage Products
+            <Link className='nav-link' to='/admin/users'>
+              Manage Users
+            </Link>
+          </li>
+          <li className='list-group-item'>
+            <Link className='nav-link' to='/admin/email'>
+              Send Email to request stock.
+            </Link>
+          </li>
+          <li className='list-group-item'>
+            <Link className='nav-link' to='/admin/product/bulkupload'>
+              Upload CSV File
+            </Link>
+          </li>
+          <li className='list-group-item'>
+            <Link className='nav-link' to='/admin/orders'>
+              View Orders
             </Link>
           </li>
         </ul>
@@ -41,7 +56,7 @@ const AdminDashboard = () => {
   const adminInfo = () => {
     return (
       <div className='card mb-5'>
-        <h3 className='card-header'>User information</h3>
+        <h3 className='card-header'>{role === 1 ? 'Admin' : 'User'} information</h3>
         <ul className='list-group'>
           <li className='list-group-item'>{name}</li>
           <li className='list-group-item'>{email}</li>

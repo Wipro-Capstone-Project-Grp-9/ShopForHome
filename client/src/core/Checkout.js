@@ -11,7 +11,7 @@ import Card from './Card';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
 import DropIn from 'braintree-web-drop-in-react';
-
+import {price} from './Card'
 const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
   const [data, setData] = useState({
     loading: false,
@@ -39,17 +39,22 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
 
   useEffect(() => {
     getToken(userId, token);
+    console.log(getTotal())
   }, []);
 
   const handleAddress = (event) => {
     setData({ ...data, address: event.target.value });
   };
 
-  const getTotal = () => {
+   const getTotal = () => {
     return products.reduce((currentValue, nextValue) => {
-      return currentValue + nextValue.count * nextValue.price;
+      return (currentValue + nextValue.count * nextValue.price);
     }, 0);
   };
+
+  // export {getTotal}
+
+  // module.exports = getTotal
 
   const showCheckout = () => {
     return isAuthenticated() ? (
@@ -181,7 +186,8 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
 
   return (
     <div>
-      <h2>Total: ${getTotal()}</h2>
+      <h2>Total: ₹{getTotal()}</h2>
+      {/* {console.log(clickedDiscount())} */}
       {showLoading(data.loading)}
       {showSuccess(data.success)}
       {showError(data.error)}

@@ -103,7 +103,7 @@ export default function Signup() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component='h1' variant='h5'>
-          Sign up
+          Register
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -146,11 +146,25 @@ export default function Signup() {
                 type='password'
                 id='password'
                 onChange={handleChange('password')}
-                type='password'
                 value={password}
                 autoComplete='current-password'
               />
+             </Grid>
+            {/* <Grid item xs={12}>
+              <TextField
+                variant='outlined'
+                required
+                fullWidth
+                name='confirmpassword'
+                label='confirmPassword'
+                type='password'
+                id='confirmpassword'
+                onChange={handleChange('confirmpassword')}
+                value={confirmpassword}
+                autoComplete='current-password'
+              />
             </Grid>
+            { password!==confirmpassword? <center><p style={{color:'red'}}>Passwords didn't match</p></center>:null}  */}
           </Grid>
           <Button
             type='submit'
@@ -160,12 +174,13 @@ export default function Signup() {
             className={classes.submit}
             onClick={clickSubmit}
           >
-            Sign Up
+            Register
           </Button>
           <Grid container justify='flex-end'>
             <Grid item>
+            Already have an account? 
               <Link to='/signin' variant='body2'>
-                Already have an account? Sign in
+                {" Login"}
               </Link>
             </Grid>
           </Grid>
@@ -176,8 +191,8 @@ export default function Signup() {
 
   return (
     <Layout
-      title='Signup page'
-      description='Signup to MERN E-commerce App'
+      title='Register page'
+      description='Register to Shop For Home App'
       className='container col-md-8 offset-md-2'
     >
       {signUpForm()}
